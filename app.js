@@ -7,7 +7,9 @@ const app = express();
 app.use(express.json());
 const jwt = require('jsonwebtoken')
 const { authenticateUser, authorizeUser } = require('./middleware/authMiddleware');
+const cors = require('cors')
 
+app.use(cors())
 app.use('/api',authenticateUser,schemaRoutes);
 
 // 
